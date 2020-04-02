@@ -1,0 +1,5 @@
+.DS_Store
+.idea/
+
+# Wikipedia data
+wikipedia_nrc.dump
