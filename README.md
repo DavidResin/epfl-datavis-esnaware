@@ -12,6 +12,17 @@
 
 **10% of the final grade**
 
+### Dataset
+Find dataset and assess its quality and amount of pre-processing/cleaning.
+
+### Problematic
+Find topic and orientation.
+
+### Exploratory Data Analysis
+Show basic stats.
+
+### Related Work
+What has been done by others, why is our apporach novel, what source do we take.
 
 ## Milestone 2 (Friday 1st May, 5pm)
 
