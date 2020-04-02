@@ -12,19 +12,23 @@
 
 **10% of the final grade**
 
-This project comes from a joint idea by several members of ESN Lausanne. We wish to implement a platform that allows users to have a global understanding of issues relating to climate change. The idea would be to give them the ability to view basic data stories about each of them expliciting their causes, their actors, their consequences and the solutions being brought.
+This project comes from a joint idea by several members of ESN Lausanne. We wish to implement a platform that allows users to have a global understanding of issues relating to climate change. We want to display information in a way that makes navigation through the issues easy and interactive. The idea would be to give them the ability to view basic data stories about each of them expliciting their causes, their actors, their consequences and the solutions being brought. One of the aims of this project is therefore to raise awereness in a different and novel way.
 
 ### Dataset
-Wikipedia categories.
+The dataset that we are going to use is mainly going to be based on articles from Wikipedia. They are selected from categories that are related to climate change and their ramifications. The choice of this dataset is crucial as Wikipedia is now the most complete and grounded source of knowledge and therefore is the best place to look for information about different global issues.
+
+The dataset has to be scraped from Wikipedia and then several NLP methods have to be applied to get all the information we need. However, as we are only looking at a subgraph of the graph of articles related to climate change, these operations will not be too demanding.
 
 ### Problematic
-The inability to have a broad understanding of interconnected global issues.
+The inability to have a broad understanding of interconnected global issues hinders our collective ability to tackle them. This typically applies to climate change. One of our team members had this notable experience with their family. Indeed, their family did not know about the relationship between the food on our plates and global warming. This instigated a whole conversation about how to get information about climate change and the lack of broad view of the issue. This particular episode led to discussions between our team members and this spawned our project idea.
+
+As previously mentioned, the aim of the project is to implement a platform that allows easy navigation through the interconnected, underlying issues of climate change and easy access to interactive information about the different issues. This project is intended for any person who is curious to know more about the topic and for people who have difficulties linking the dots and grasping the whole picture.
 
 ### Exploratory Data Analysis
-Show basic stats.
+We are going to use a subset of the dataset. It comprises hundreds of articles extracted from Wikipedia based on several hand-selected issues that we want to address through this project. 
 
 ### Related Work
-We are in a way building upon a common practice of assembling graphs from Wikipedia page links. Many projects attempt to display interconnections between subjects that way, but we wish to bring a curative aspect to it with our project
+We are in a way building upon a common practice of assembling graphs from Wikipedia page links. Many projects attempt to display interconnections between subjects that way, but we wish to bring a curative aspect to it with our project. 
 
 ## Milestone 2 (Friday 1st May, 5pm)
 
