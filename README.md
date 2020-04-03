@@ -32,11 +32,11 @@ The ultimate goal would be a platform presenting content contributed both by hum
 Please note that these are by no means complete data stories but just ideas of what we find relevant to present.
 
 - Cobalt (resource)
--- Uses : Alloys (22 %), Batteries (22 %)
--- Origins : Nickel mining (non-renewable)
--- Main locations : DR Congo (63 %)
--- Issues : Wars, shortage due to rise in electric car needs
--- Solutions : Batteries requiring less/no cobalt (in development)
+  - Uses : Alloys (22 %), Batteries (22 %)
+  - Origins : Nickel mining (non-renewable)
+  - Main locations : DR Congo (63 %)
+  - Issues : Wars, shortage due to rise in electric car needs
+  - Solutions : Batteries requiring less/no cobalt (in development)
 - Rising sea levels (climatic phenomenon)
 - Helium (resource)
 
