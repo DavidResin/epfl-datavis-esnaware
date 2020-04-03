@@ -29,6 +29,17 @@ We are going to use a subset of the dataset. It comprises hundreds of articles e
 
 The ultimate goal would be a platform presenting content contributed both by human and machine, with the machine providing the linkage between concepts while humans will collectively "fill in the blanks" in the vein of Wikipedia. Therefore we will present our work in the shape of a "proof-of-concept" with several entries in our dataset handcrafted just like they would in the final design. Here are a few examples of how that would be presented :
 
+Please note that these are by no means complete data stories but just ideas of what we find relevant to present.
+
+- Cobalt (resource)
+-- Uses : Alloys (22 %), Batteries (22 %)
+-- Origins : Nickel mining (non-renewable)
+-- Main locations : DR Congo (63 %)
+-- Issues : Wars, shortage due to rise in electric car needs
+-- Solutions : Batteries requiring less/no cobalt (in development)
+- Rising sea levels (climatic phenomenon)
+- Helium (resource)
+
 ### Related Work
 We are in a way building upon a common practice of assembling graphs from Wikipedia page links. Many projects attempt to display interconnections between subjects that way, but we wish to bring a curative aspect to it with our project. Professor Hans Rösling's works were an influential factor as we liked his approach to data, with his intent to curate it in order to let people have an informed view of the world, seeing both the degradations and the improvements over time, which is something that can easily be lost in the "hot news"-style transmission of knowledge many people are used to.
 
