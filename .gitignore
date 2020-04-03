@@ -1,5 +1,13 @@
 .DS_Store
 .idea/
+.ipynb_checkpoints
 
 # Wikipedia data
 wikipedia_nrc.dump
+
+# Local Notebook
+Local.ipynb
+
+# Data
+data/
+wikipedia_test.json
