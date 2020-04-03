@@ -49,6 +49,11 @@ Please note that these are by no means complete data stories but just ideas of w
   - Main locations : USA (55 %), Qatar (32 %)
   - Consequences : Shortage due to evaporation, increased price for valuable processes
   - Solutions : Conservation efforts, limitation of "wasteful" uses
+- Cars (transportation)
+  - Causes : Social necessity to move great distances for work and leisure, Industry
+  - Main locations : worldwide
+  - Consequences : Air pollution, noise pollution, heavy precious resource consumption per individual
+  - Solutions : Reduction of transportation needs, Public Transportation, Cleaner vehicles
 
 ### Related Work
 We are in a way building upon a common practice of assembling graphs from Wikipedia page links. Many projects attempt to display interconnections between subjects that way, but we wish to bring a curative aspect to it with our project. Professor Hans Rösling's works were an influential factor as we liked his approach to data, with his intent to curate it in order to let people have an informed view of the world, seeing both the degradations and the improvements over time, which is something that can easily be lost in the "hot news"-style transmission of knowledge many people are used to.
