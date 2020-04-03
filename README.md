@@ -25,7 +25,7 @@ The inability to have a broad understanding of interconnected global issues hind
 As previously mentioned, the aim of the project is to implement a platform that allows easy navigation through the interconnected, underlying issues of climate change and easy access to interactive information about the different issues. This project is intended for any person who is curious to know more about the topic and for people who have difficulties linking the dots and grasping the whole picture.
 
 ### Exploratory Data Analysis
-We are going to use a subset of the dataset. It comprises hundreds of articles extracted from Wikipedia based on several hand-selected issues that we want to address through this project. 
+We are going to use a subset of the dataset. It comprises hundreds of articles extracted from Wikipedia based on several hand-selected issues that we want to address through this project. The EDA on the preliminary dataset can be found in the notebook called EDA. Please note that the scraped data is not yet complete.
 
 The ultimate goal would be a platform presenting content contributed both by human and machine, with the machine providing the linkage between concepts while humans will collectively "fill in the blanks" in the vein of Wikipedia. Therefore we will present our work in the shape of a "proof-of-concept" with several entries in our dataset handcrafted just like they would in the final design. Here are a few examples of how that would be presented :
 
