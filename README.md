@@ -29,7 +29,7 @@ We are going to use a subset of the dataset. It comprises hundreds of articles e
 
 The ultimate goal would be a platform presenting content contributed both by human and machine, with the machine providing the linkage between concepts while humans will collectively "fill in the blanks" in the vein of Wikipedia. Therefore we will present our work in the shape of a "proof-of-concept" with several entries in our dataset handcrafted just like they would in the final design. Here are a few examples of how that would be presented :
 
-Please note that these are by no means complete data stories but just ideas of what we would find relevant to present. These would also include relevant bits of text found in the associated Wikipedia pages alongside basic stats.
+Please note that these are by no means complete data stories but just ideas of what we would find relevant to put in the forefront of each entry. These would also include relevant bits of text found in the associated Wikipedia pages alongside basic stats.
 
 - Cobalt (resource)
   - Uses : Alloys (22 %), Batteries (22 %)
