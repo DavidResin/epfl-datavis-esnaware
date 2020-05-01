@@ -62,7 +62,7 @@ We are in a way building upon a common practice of assembling graphs from Wikipe
 
 **10% of the final grade**
 
-The report for milestone 2 is available on this repo. For the website's prototype, kindly check this [repo](https://github.com/climatemaze/climatemaze.github.io) or directly on the [website](https://climatemaze.github.io/)
+The report for milestone 2 is available on this repo. For the website's prototype, kindly check this [repo](https://github.com/climatemaze/climatemaze.github.io) or directly on the [website](https://climatemaze.github.io/).
 
 
 ## Milestone 3 (Thursday 28th May, 5pm)
