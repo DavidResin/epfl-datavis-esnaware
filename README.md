@@ -62,12 +62,7 @@ We are in a way building upon a common practice of assembling graphs from Wikipe
 
 **10% of the final grade**
 
-### Extra Ideas
-
-Two options to display the network:
-- Start with initial node "Global Warming" and show the different paths that you can take from this node on
-- Show the full network and highlight the "clickable" nodes that display a certain data story
-- Keep in memory the path the user takes
+The report for milestone 2 is available on this repo. For the website's prototype, kindly check this [repo](https://github.com/climatemaze/climatemaze.github.io) or directly on the [website](climatemaze.github.io)
 
 
 ## Milestone 3 (Thursday 28th May, 5pm)
