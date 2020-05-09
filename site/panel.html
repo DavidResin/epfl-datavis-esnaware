@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://d3js.org/d3.v4.js"></script>
+
+
+
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.dataviz {
+  height: 25%;
+  position: fixed;
+  z-index: 0;
+  transition: 0.5s;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: stretch;
+    background-color: red;
+    height: 100%;
+    }
+
+.flex-item:nth-child(1) {
+    order: 0;
+    flex: 0 0 75%;
+    align-self: stretch;
+    flex-direction: column;
+    background-color: green;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: stretch;
+    }
+
+.flex-item:nth-child(2) {
+    order: 1;
+    flex: 0 0 25%;
+    align-self: stretch;
+    background-color: blue;
+}
+
+.flex-subitem:nth-child(1) {
+    order: 0;
+    flex: 0 0 25%;
+    align-self: stretch;
+    background-color: grey;
+    text-align: justify;
+    padding: 30px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-family: Zapf Chancery;
+    font-style: italic;
+    font-size: 34;
+  }
+
+.flex-subitem:nth-child(2) {
+    order: 1;
+    flex: 0 0 5%;
+    align-self: stretch;
+    background-color: purple;
+    }
+
+.flex-subitem:nth-child(3) {
+    order: 2;
+    flex: 0 0 35%;
+    align-self: stretch;
+    background-color: pink;
+    }
+
+.flex-subitem:nth-child(4) {
+    order: 3;
+    flex: 0 0 35%;
+    align-self: stretch;
+    background-color: yellow;
+    }
+
+.sidepanel  {
+  height: 0;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: #070;
+  overflow-y: hidden;
+  transition: 0.5s;
+  padding-top: 0px;
+  padding-left: 0px;
+}
+
+.innerleft {
+  width: 60%;
+  height: 100%;
+  background-color: #0A0;
+  z-index: 2;
+}
+
+.innerright {
+  width: 40%;
+  height: 100%;
+  background-color: #0A0;
+  z-index: 2;
+}
+
+.sidepanel a {
+  padding: 8px 8px 8px 8px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidepanel a:hover {
+  color: #f1f1f1;
+}
+
+.openbtn .closebtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color:#0F0;
+}
+</style>
+</head>
+<body>
+<button class="openbtn" onclick="openNav()">Open</button>   
+<div id="mySidepanel" class="sidepanel" style="display: table-row">
+  <div class="flex-container">
+    <div class="flex-item">
+      <div class="flex-subitem">What is Lorem Ipsum?
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+Why do we use it?
+It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+
+
+Where does it come from?
+Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+
+Where can I get some?
+There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+      </div>
+      <div class="flex-subitem">TEST</div>
+      <div class="flex-subitem">
+<button class="closebtn" onclick="closeNav()">Close</button> </div>
+      <div class="flex-subitem">TEST</div>
+    </div>
+    <div class="flex-item">2</div>
+  </div>
+</div>
+ 
+<div id="my_dataviz" class="dataviz"></div>?
+
+<script>
+function openNav() {
+  document.getElementById("mySidepanel").style.height = "75%";
+  document.getElementById("my_dataviz").style.height = "25%";
+}
+
+function closeNav() {
+  document.getElementById("mySidepanel").style.height = "0";
+  document.getElementById("my_dataviz").style.height = "100%";
+}
+</script>
+<canvas id="my_dataviz" width="960" height="500"></canvas>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+var n = 4;
+
+var nodes = d3.range(n * n).map(function(i) {
+  return {
+    index: i,
+    color: i > 8 ? "brown" : i == 0 ? "green" : "steelblue"
+  };
+});
+
+var canvas = document.querySelector("canvas"),
+    context = canvas.getContext("2d"),
+    width = canvas.width,
+    height = canvas.height;
+
+var simulation = d3.forceSimulation(nodes)
+    .force("y", d3.forceY())
+    .force("black", isolate(d3.forceX(0), function(d) { return d.color === "green"; }))
+    .force("brown", isolate(d3.forceX(-width / 4).strength(.3), function(d) { return d.color === "brown"; }))
+    .force("steelblue", isolate(d3.forceX(width / 4).strength(.3), function(d) { return d.color === "steelblue"; }))
+    .force("charge", d3.forceManyBody().strength(-100))
+    .on("tick", ticked);
+
+function ticked() {
+  context.clearRect(0, 0, width, height);
+  context.save();
+  context.translate(width / 2, height / 2);
+  nodes.forEach(draw);
+  context.restore();
+}
+
+function draw(d) {
+  context.beginPath();
+  context.moveTo(d.x + 3, d.y);
+  context.arc(d.x, d.y, 10, 0, 2 * Math.PI);
+  context.fillStyle = d.color;
+  context.fill();
+}
+
+function isolate(force, filter) {
+  var initialize = force.initialize;
+  force.initialize = function() { initialize.call(force, nodes.filter(filter)); };
+  return force;
+}
+
+</script>
+</body>
+</html> 

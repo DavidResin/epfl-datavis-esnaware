@@ -2,34 +2,65 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="index.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:300,500">
 		<script src="index.js"></script>
+		<script src="https://d3js.org/d3.v4.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
-	<body>
+	<body onload="panel('A')">
 		<div class="panel base-flex v-container">
 			<div id="graph_panel" class="base-item v-item">
 				<button class="openbtn" onclick="openNav()">Open</button>  
 				<button class="closebtn" onclick="closeNav()">Close</button>
+				<div id="my_dataviz" class="dataviz"></div>?
 			</div>
 			<div id="data_panel" class="base-item base-flex v-item h-container">
-				<div class="base-item base-flex h-item v-container">
-					<div class="base-item v-subitem-a">
-						<p class="lorem">Lorem ipsum dolor sit amet, an quo wisi fabulas, vocent viderer per no, vel ne graeci adolescens. His regione mandamus maiestatis an. At ferri errem salutandi vim, quo ex stet dicam dictas, no platonem convenire intellegam est. Aperiri voluptua hendrerit ne nam, usu cu erat labores tractatos. Ea est nobis explicari. Ad dolorem fabellas qui. Mei forensibus deseruisse ut.
+				<div id="main_panel" class="base-item base-flex h-item v-container">
+					<div id="descr_panel" class="base-item v-subitem-a">
+						<p class="lorem">Lorem ipsum dolor sit amet, an quo wisi fabulas, vocent viderer per no, vel ne graeci adolescens. His regione mandamus maiestatis an. At ferri errem salutandi vim, quo ex stet dicam dictas, no platonem convenire intellegam est. Aperiri voluptua hendrerit ne nam, usu cu erat labores tractatos. Ea est nobis explicari. Ad dolorem fabellas qui. Mei forensibus deseruisse ut. Cum zril assueverit cu, vel ea tale modus mediocrem. Cibo apeirian at sea, diam paulo tation eos at. Wisi epicuri mel ad, ad debet quodsi fabulas mea. Ex convenire aliquando concludaturque sea. Vix choro regione consequuntur id, id per quaeque delicata, ad dicant propriae vis.</p>
+					</div>
+					<div id="title_panel" class="base-item v-subitem-a">Name of the current subject</div>
+					<div id="content_panel" class="base-item v-subitem-a">
+						<div class="hide-scroll">
+							<div class="inner-scroll">
+								<p class="lorem">Lorem ipsum dolor sit amet, an quo wisi fabulas, vocent viderer per no, vel ne graeci adolescens. His regione mandamus maiestatis an. At ferri errem salutandi vim, quo ex stet dicam dictas, no platonem convenire intellegam est. Aperiri voluptua hendrerit ne nam, usu cu erat labores tractatos. Ea est nobis explicari. Ad dolorem fabellas qui. Mei forensibus deseruisse ut.
 
-Cum zril assueverit cu, vel ea tale modus mediocrem. Cibo apeirian at sea, diam paulo tation eos at. Wisi epicuri mel ad, ad debet quodsi fabulas mea. Ex convenire aliquando concludaturque sea. Vix choro regione consequuntur id, id per quaeque delicata, ad dicant propriae vis.
+								Cum zril assueverit cu, vel ea tale modus mediocrem. Cibo apeirian at sea, diam paulo tation eos at. Wisi epicuri mel ad, ad debet quodsi fabulas mea. Ex convenire aliquando concludaturque sea. Vix choro regione consequuntur id, id per quaeque delicata, ad dicant propriae vis.
 
-Ut esse copiosae appareat quo. Te justo exerci assueverit ius, his in everti adipisci elaboraret, tritani explicari rationibus ex pro. Dicit oratio no sit, qui ne mazim liberavisse. Id detracto complectitur signiferumque vim, id augue errem quando usu, dicant euripidis voluptaria sea at. Utroque gubergren persequeris sea an, vix an vidit laboramus, sea ei iudico omittam senserit. Case molestie ad pri.
+								Ut esse copiosae appareat quo. Te justo exerci assueverit ius, his in everti adipisci elaboraret, tritani explicari rationibus ex pro. Dicit oratio no sit, qui ne mazim liberavisse. Id detracto complectitur signiferumque vim, id augue errem quando usu, dicant euripidis voluptaria sea at. Utroque gubergren persequeris sea an, vix an vidit laboramus, sea ei iudico omittam senserit. Case molestie ad pri.
 
-Te officiis definitiones eum, mei liber percipitur appellantur no. Id regione necessitatibus ius, has periculis instructior ad. Viris apeirian adipiscing ne qui, in eirmod numquam civibus cum. Vide accumsan maluisset est ut, ei dolor forensibus his, quot percipitur in sed. Eros persius forensibus ea vis, cum probo saepe essent ut. Scripserit quaerendum et mel, eos movet laudem corpora te, noster scriptorem quo et.
+								Te officiis definitiones eum, mei liber percipitur appellantur no. Id regione necessitatibus ius, has periculis instructior ad. Viris apeirian adipiscing ne qui, in eirmod numquam civibus cum. Vide accumsan maluisset est ut, ei dolor forensibus his, quot percipitur in sed. Eros persius forensibus ea vis, cum probo saepe essent ut. Scripserit quaerendum et mel, eos movet laudem corpora te, noster scriptorem quo et.
 
-Solum possim in vim. An duo essent menandri tacimates, an mea facete fierent. Errem molestie eleifend no mea. Eos cu impetus volumus, vel sumo soluta et, eam virtute consulatu te. Ne nec mundi homero definiebas, his quod oporteat eu. Repudiandae instructior vituperatoribus his at, ea harum efficiendi his. Mei in case vidit, vim habeo eripuit eu.</p></div>
-					<div class="base-item v-subitem-a">Name of the current subject</div>
-					<div class="base-item v-subitem-a"></div>
+								Solum possim in vim. An duo essent menandri tacimates, an mea facete fierent. Errem molestie eleifend no mea. Eos cu impetus volumus, vel sumo soluta et, eam virtute consulatu te. Ne nec mundi homero definiebas, his quod oporteat eu. Repudiandae instructior vituperatoribus his at, ea harum efficiendi his. Mei in case vidit, vim habeo eripuit eu.</p>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="base-item base-flex h-item v-container">
-					<div id="A" onmouseover="panel('A')" class="base-item v-subitem-b">A</div>
-					<div id="B" onmouseover="panel('B')" class="base-item v-subitem-b">B</div>
-					<div id="C" onmouseover="panel('C')" class="base-item v-subitem-b">C</div>
+				<div id="right_panel" class="base-item base-flex h-item v-container">
+					<div id="A" onmouseover="panel('A')" class="base-item v-subitem-b">
+						<div class="issue-title">Causes</div>
+						<div class="issue-content">
+							<p>
+								This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test 
+							</p>
+						</div>
+					</div>
+					<div id="B" onmouseover="panel('B')" class="base-item v-subitem-b">
+						<div class="issue-title">Consequences</div>
+						<div class="issue-content">
+							<p>
+								This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test 
+							</p>
+						</div>
+					</div>
+					<div id="C" onmouseover="panel('C')" class="base-item v-subitem-b">
+						<div class="issue-title">Solutions</div>
+						<div class="issue-content">
+							<p>
+								This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test 
+							</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
