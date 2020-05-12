@@ -1,0 +1,456 @@
+{
+	"nodes": [
+		{
+			"id": "A",
+			"neighbors": [
+				"S",
+				"Z"
+			]
+		},
+		{
+			"id": "B",
+			"neighbors": [
+				"J",
+				"E",
+				"S"
+			]
+		},
+		{
+			"id": "C",
+			"neighbors": [
+				"AD",
+				"AC",
+				"M"
+			]
+		},
+		{
+			"id": "D",
+			"neighbors": [
+				"V"
+			]
+		},
+		{
+			"id": "E",
+			"neighbors": [
+				"AA",
+				"AC",
+				"R",
+				"K",
+				"B"
+			]
+		},
+		{
+			"id": "F",
+			"neighbors": [
+				"L",
+				"U",
+				"AA"
+			]
+		},
+		{
+			"id": "G",
+			"neighbors": [
+				"AA",
+				"Y",
+				"R",
+				"Z"
+			]
+		},
+		{
+			"id": "H",
+			"neighbors": [
+				"K",
+				"P",
+				"R"
+			]
+		},
+		{
+			"id": "I",
+			"neighbors": [
+				"Z",
+				"S"
+			]
+		},
+		{
+			"id": "J",
+			"neighbors": [
+				"L",
+				"S",
+				"R",
+				"AA",
+				"B"
+			]
+		},
+		{
+			"id": "K",
+			"neighbors": [
+				"H",
+				"E",
+				"W",
+				"N",
+				"T"
+			]
+		},
+		{
+			"id": "L",
+			"neighbors": [
+				"J",
+				"F",
+				"AB"
+			]
+		},
+		{
+			"id": "M",
+			"neighbors": [
+				"Z",
+				"O",
+				"C"
+			]
+		},
+		{
+			"id": "N",
+			"neighbors": [
+				"AD",
+				"K"
+			]
+		},
+		{
+			"id": "O",
+			"neighbors": [
+				"AC",
+				"M",
+				"U",
+				"V"
+			]
+		},
+		{
+			"id": "P",
+			"neighbors": [
+				"H"
+			]
+		},
+		{
+			"id": "Q",
+			"neighbors": [
+				"AD",
+				"X",
+				"S"
+			]
+		},
+		{
+			"id": "R",
+			"neighbors": [
+				"J",
+				"H",
+				"E",
+				"G",
+				"V"
+			]
+		},
+		{
+			"id": "S",
+			"neighbors": [
+				"J",
+				"A",
+				"Q",
+				"B",
+				"I"
+			]
+		},
+		{
+			"id": "T",
+			"neighbors": [
+				"AC",
+				"K"
+			]
+		},
+		{
+			"id": "U",
+			"neighbors": [
+				"F",
+				"AD",
+				"AB",
+				"O"
+			]
+		},
+		{
+			"id": "V",
+			"neighbors": [
+				"X",
+				"O",
+				"R",
+				"D"
+			]
+		},
+		{
+			"id": "W",
+			"neighbors": [
+				"K"
+			]
+		},
+		{
+			"id": "X",
+			"neighbors": [
+				"Q",
+				"V"
+			]
+		},
+		{
+			"id": "Y",
+			"neighbors": [
+				"AB",
+				"G"
+			]
+		},
+		{
+			"id": "Z",
+			"neighbors": [
+				"A",
+				"M",
+				"G",
+				"I"
+			]
+		},
+		{
+			"id": "AA",
+			"neighbors": [
+				"AD",
+				"J",
+				"G",
+				"E",
+				"AB",
+				"F"
+			]
+		},
+		{
+			"id": "AB",
+			"neighbors": [
+				"AA",
+				"L",
+				"Y",
+				"U"
+			]
+		},
+		{
+			"id": "AC",
+			"neighbors": [
+				"E",
+				"C",
+				"T",
+				"O"
+			]
+		},
+		{
+			"id": "AD",
+			"neighbors": [
+				"AA",
+				"U",
+				"Q",
+				"C",
+				"N"
+			]
+		}
+	],
+	"links": [
+		{
+			"source": "J",
+			"target": "L"
+		},
+		{
+			"source": "F",
+			"target": "L"
+		},
+		{
+			"source": "AA",
+			"target": "AD"
+		},
+		{
+			"source": "AD",
+			"target": "U"
+		},
+		{
+			"source": "A",
+			"target": "S"
+		},
+		{
+			"source": "AA",
+			"target": "J"
+		},
+		{
+			"source": "AC",
+			"target": "E"
+		},
+		{
+			"source": "AA",
+			"target": "G"
+		},
+		{
+			"source": "Q",
+			"target": "X"
+		},
+		{
+			"source": "J",
+			"target": "S"
+		},
+		{
+			"source": "H",
+			"target": "K"
+		},
+		{
+			"source": "E",
+			"target": "R"
+		},
+		{
+			"source": "V",
+			"target": "X"
+		},
+		{
+			"source": "AB",
+			"target": "L"
+		},
+		{
+			"source": "M",
+			"target": "Z"
+		},
+		{
+			"source": "A",
+			"target": "Z"
+		},
+		{
+			"source": "O",
+			"target": "U"
+		},
+		{
+			"source": "O",
+			"target": "V"
+		},
+		{
+			"source": "M",
+			"target": "O"
+		},
+		{
+			"source": "K",
+			"target": "W"
+		},
+		{
+			"source": "H",
+			"target": "P"
+		},
+		{
+			"source": "AC",
+			"target": "C"
+		},
+		{
+			"source": "B",
+			"target": "J"
+		},
+		{
+			"source": "AA",
+			"target": "E"
+		},
+		{
+			"source": "G",
+			"target": "Y"
+		},
+		{
+			"source": "F",
+			"target": "U"
+		},
+		{
+			"source": "H",
+			"target": "R"
+		},
+		{
+			"source": "AA",
+			"target": "AB"
+		},
+		{
+			"source": "K",
+			"target": "N"
+		},
+		{
+			"source": "R",
+			"target": "V"
+		},
+		{
+			"source": "AA",
+			"target": "F"
+		},
+		{
+			"source": "AD",
+			"target": "Q"
+		},
+		{
+			"source": "I",
+			"target": "Z"
+		},
+		{
+			"source": "K",
+			"target": "T"
+		},
+		{
+			"source": "G",
+			"target": "R"
+		},
+		{
+			"source": "Q",
+			"target": "S"
+		},
+		{
+			"source": "D",
+			"target": "V"
+		},
+		{
+			"source": "I",
+			"target": "S"
+		},
+		{
+			"source": "AC",
+			"target": "T"
+		},
+		{
+			"source": "AC",
+			"target": "O"
+		},
+		{
+			"source": "G",
+			"target": "Z"
+		},
+		{
+			"source": "E",
+			"target": "K"
+		},
+		{
+			"source": "AB",
+			"target": "Y"
+		},
+		{
+			"source": "B",
+			"target": "E"
+		},
+		{
+			"source": "AD",
+			"target": "C"
+		},
+		{
+			"source": "C",
+			"target": "M"
+		},
+		{
+			"source": "B",
+			"target": "S"
+		},
+		{
+			"source": "AB",
+			"target": "U"
+		},
+		{
+			"source": "J",
+			"target": "R"
+		},
+		{
+			"source": "AD",
+			"target": "N"
+		}
+	]
+}
