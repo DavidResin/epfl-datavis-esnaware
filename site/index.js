@@ -1,22 +1,3 @@
-var panel_data = [];
-
-function readTextFile(file, callback) {
-    var rawFile = new XMLHttpRequest();
-    rawFile.overrideMimeType("application/json");
-    rawFile.open("GET", file, true);
-    rawFile.onreadystatechange = function() {
-        if (rawFile.readyState === 4 && rawFile.status == "200") {
-            callback(rawFile.responseText);
-        }
-    }
-    rawFile.send(null);
-}
-
-readTextFile("data_panel.json", function(text){
-    panel_data = JSON.parse(text);
-    console.log(panel_data);
-});
-
 function openNav() {
 	var s = document.getElementsByTagName('p');
 
@@ -42,7 +23,7 @@ function openNav() {
 	document.getElementById("title_panel").style["flex-basis"] = "10%";
 }
 
-function closeNav() {
+function closeNav() {	
 	var s = document.getElementsByTagName('p');
 
 	for (i = 0; i < s.length; i++) {
@@ -70,53 +51,4 @@ function closeNav() {
 function panel(val) {
 	["A", "B", "C"].forEach(v => document.getElementById(v).style["flex-basis"] = val == v ? "80%" : "10%");
 	["A", "B", "C"].forEach(v => document.getElementById(v).style["background-color"] = val == v ? "#8D8" : "#7A7");
-}
-
-var getJSON = function(url, callback) {
-		const proxy_url = "https://cors-anywhere.herokuapp.com/"
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', proxy_url + url, true);
-    xhr.responseType = 'json';
-
-    xhr.onload = function() {
-
-        var status = xhr.status;
-
-        if (status == 200) {
-            callback(null, xhr.response);
-        } else {
-            callback(status);
-        }
-    };
-
-    xhr.send();
-};
-
-
-function test_panel(id) {
-	document.getElementById("image-panel").setAttribute("src", '');
-	console.log(id);
-	const test = panel_data[id];
-	document.getElementById("summary").innerHTML = test['summary'];
-	document.getElementById("title_panel").innerHTML = test['title'];
-	document.getElementById("link").setAttribute("href", test['link']);
-	document.getElementById("link").innerHTML = test['title'];
-	document.getElementById('content-category').innerHTML = "<strong>Category:<strong> " + test['category'];
-	document.getElementById('content-topic').innerHTML = "<strong>Dominant LDA Topic:</strong> " + test['topic'];
-	document.getElementById('keywords-list').innerHTML = "<li>" + test['topic_keywords'].join("</li><li>") + "</li>";
-	document.getElementById("link").setAttribute("href", test['link']);
-	getJSON("https://en.wikipedia.org/w/api.php?action=query&titles=" + test['title'] + "&prop=pageimages&format=json&pithumbsize=300",
-					function(err, data) {
-						if (err != null) {
-							console.error(err);
-						} else {
-							console.log(data);
-							page = data['query']['pages']
-							page_id = Object.keys(page)[0]
-							img_link = page[page_id]['thumbnail']['source'];
-							document.getElementById("image-panel").setAttribute("src", img_link);
-						}
-					}
-				);
-
 }

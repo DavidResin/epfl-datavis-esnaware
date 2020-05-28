@@ -159,43 +159,16 @@ p {
 	overflow: hidden
 }
 
-.content{
-	font-size: 18px;
-	-webkit-columns: 3;
-     -moz-columns: 3;
-          columns: 3;
-  padding-left: 0;
-	-webkit-column-break-inside: avoid;
-          page-break-inside: avoid;
-               break-inside: avoid;
-}
+#bg {
+    /* Should take whole screen */
+    position: fixed;
+    top: 0; bottom: 0; left: 0; right: 0;
 
-.keywords {
-	display: inline-block;
-}
+    /* Semi-transparent black */
+    background: black;
+    opacity: 0.7;
 
-ul li {
-	break-inside: avoid-column;
-	page-break-inside: avoid-column;
-	-webkit-column-break-inside: avoid-column;
-}
-
-div.summary {
-   position: relative
-	 }
-div.summary p {
-   margin: 0;
-   position: absolute;               /* 2 */
-   top: 50%;                         /* 3 */
-   transform: translate(0, -50%);
-	 margin-right: 40px;
- }
-
-#content-keywords {
-	break-after:column;
-  display:block;
-}
-
-div.image-content {
-	float: none; margin-left: 0; margin-right: 0;
+    /* Initial settings */
+    z-index: 1;
+    display: none;
 }
