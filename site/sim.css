@@ -1,0 +1,499 @@
+.node {
+	position: relative;
+	user-select: none;
+	width: 0px;
+	height: 0px;
+}
+
+.links line {
+  stroke: #999;
+  stroke-opacity: 0.6;
+  transition: .5s;
+}
+
+.node>div {
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	top: -30px;
+	left: -30px;
+	border-radius: 30px;
+	background: #DDD;
+	border: 30px solid #BBB;
+	transform: scale(.25);
+	transform: border .5s 0s;
+}
+
+.node>div:first-child {
+	z-index: 10;
+	transition: .3s .5s;
+}
+
+.node>div:first-child:hover {
+	border: 5px solid #117733;
+	width: 60px;
+	height: 60px;
+	transition: .5s;
+	transform: scale(1);
+}
+
+.node>div:last-child {
+	z-index: 9;
+	border: 10px solid #117733;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	padding-right: 15px;
+	transition:
+		all .3s,
+		transform .5s .5s;
+}
+
+.node>div:first-child:hover~div {
+	width: 200px;
+	transform: scale(1);
+	transition:
+		all .5s .5s,
+		transform .5s .0s;
+}
+
+.node>div:last-child>div {
+	overflow: hidden;
+	white-space: nowrap;
+	text-align: right;
+}
+
+.node-side {
+	border: var(--color)
+}
+
+.nolinks line {
+	stroke-width: 0px;
+}
+
+.container-div {
+  position: relative;
+  width: 960px;
+  height: 600px;
+}
+
+.canvas-div, .panel-div, .menu-div {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.node {
+	position: relative;
+	user-select: none;
+	width: 0px;
+	height: 0px;
+}
+
+.links line {
+  stroke: #999;
+  stroke-opacity: 0.6;
+  transition: .5s;
+}
+
+.node>div {
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	top: -30px;
+	left: -30px;
+	border-radius: 30px;
+	background: #DDD;
+	border: 30px solid #BBB;
+	transform: scale(.25);
+	transform: border .5s 0s;
+}
+
+.node>div:first-child {
+	z-index: 10;
+	transition: .3s .5s;
+}
+
+.node>div:first-child:hover {
+	border: 5px solid #117733;
+	width: 60px;
+	height: 60px;
+	transition: .5s;
+	transform: scale(1);
+}
+
+.node>div:last-child {
+	z-index: 9;
+	border: 10px solid #117733;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	padding-right: 15px;
+	transition:
+		all .3s,
+		transform .5s .5s;
+}
+
+.node>div:first-child:hover~div {
+	width: 200px;
+	transform: scale(1);
+	transition:
+		all .5s .5s,
+		transform .5s .0s;
+}
+
+.node>div:last-child>div {
+	overflow: hidden;
+	white-space: nowrap;
+	text-align: right;
+}
+
+.node-side {
+	border: var(--color)
+}
+
+.nolinks line {
+	stroke-width: 0px;
+}
+
+.container-div {
+  position: relative;
+  width: 960px;
+  height: 600px;
+}
+
+.canvas-div, .panel-div, .menu-div {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+	font-family: "Quicksand", sans-serif;
+	font-weight: 300;
+	padding: 0;
+	margin: 0;
+}
+
+.back {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  width: 100px;
+  user-select: none;
+}
+.back ul {
+  display: block;
+  margin-bottom: 0;
+  list-style: none;
+  opacity: 0;
+}
+.back ul li {
+  white-space: nowrap;
+}
+.back ul li a {
+  text-decoration: none;
+	font-size: 18px;
+}
+.back ul.nav-history {
+  padding-left: 70px;
+  padding-top: 5px;
+  pointer-events: none;
+}
+.back ul.nav-history li {
+  margin-bottom: 5px;
+}
+.back ul.nav-history li::after {
+  content: '';
+  position: absolute;
+  left: 45px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #e8eaed;
+  transform: scale(0.9);
+  transition: all 0.2s ease;
+}
+.back ul.nav-history li:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 50px;
+  margin-top: 10px;
+  width: 2px;
+  height: 28px;
+  background: #e8eaed;
+  transition: all 0.2s ease;
+}
+.back ul.nav-history li.active {
+  pointer-events: none;
+}
+.back ul.nav-history li.active::after {
+  background: #e8eaed;
+}
+.back ul.nav-history li.active a {
+  color: #5a667f;
+}
+.back ul.nav-history li a {
+  color: #418ad8;
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: all 0.2s ease;
+}
+.back ul.nav-history li a:hover {
+  color: #2b7cd2;
+}
+.back:hover {
+  width: auto;
+}
+.back:hover .menu-back {
+  opacity: 1;
+  transform: translateY(0);
+}
+.back:hover .btn-back div {
+  background: rgba(65,138,216,0.25);
+}
+.back:hover .btn-back div svg path,
+.back:hover .btn-back div svg polyline {
+  stroke: #418ad8;
+}
+.back:hover .btn-back span {
+  transform: translateX(1);
+  opacity: 1;
+	font-size: 24px;
+}
+.back:hover ul.nav-history {
+  transform: translateY(0);
+  pointer-events: auto;
+  opacity: 1;
+}
+.back:hover ul.nav-history li {
+  margin-bottom: 8px;
+}
+.back:hover ul.nav-history li::after {
+  background: #418ad8;
+  transform: translateY(6px);
+}
+.back:hover ul.nav-history li.active::after {
+  background: #5a667f;
+}
+.back:hover ul.nav-history li a {
+  opacity: 1;
+  transform: translateY(0);
+}
+.btn-back {
+  display: inline-flex;
+}
+.btn-back div {
+  position: relative;
+  z-index: 1;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #e8eaed;
+  float: left;
+}
+.btn-back div svg {
+  fill: none;
+}
+
+.btn-back div svg path,
+.btn-back div svg polyline {
+  stroke: #9098a9;
+  stroke-width: 3;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.btn-back span {
+  display: inline-flex;
+  color: #418ad8;
+  margin-left: 40px;
+  line-height: 100px;
+  opacity: 0;
+  transform: translateX(-18px);
+  transition: all 0.2s ease;
+}
+.btn-back:hover span {
+  color: #2b7cd2;
+}
+.url {
+  font-size: 12px;
+  font-weight: bold;
+}
+body {
+	font-family: "Quicksand", sans-serif;
+	font-weight: 300;
+}
+
+p {
+	transition: 0.2s;
+}
+
+div.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 30px;
+    height: 15px;
+    padding: 2px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.panel {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	bottom: 0;
+	left: 0;
+	overflow-y: hidden;
+	padding: 0px 0px 0px 0px;
+}
+
+.base-flex {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-content: stretch;
+	align-items: stretch;
+}
+
+.base-item {
+	align-self: stretch;
+	transition: 0.5s;
+}
+
+.v-container {
+	flex-direction: column;
+	height: 100%;
+}
+
+.h-container {
+	flex-direction: row;
+	width: 100%;
+}
+
+.v-item:nth-child(1) {
+	order: 0;
+	flex: 0 0 100%;
+}
+
+.v-item:nth-child(2) {
+	order: 1;
+	flex: 0 0 0%;
+	background-color: #dddddd;
+}
+
+.h-item:nth-child(1) {
+	order: 0;
+	flex: 0 0 100%;
+}
+
+.h-item:nth-child(2) {
+	order: 1;
+	flex: 0 0 0%;
+	overflow-x: hidden;
+}
+
+.v-subitem-a:nth-child(1) {
+	order: 0;
+	flex: 0 0 0%;
+	background-color: #dddddd;
+}
+
+.h-subitem:nth-child(1) {
+	order: 0;
+	flex-basis: 10%;
+}
+
+.h-subitem:nth-child(2) {
+	order: 1;
+	flex-basis: 90%;
+    padding: 0px 35px 0px 35px;
+	align-items: center;
+	color: black;
+	overflow: hidden;
+	text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    text-align: justify;
+}
+
+.lorem {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-align: justify;
+}
+
+.v-subitem-a:nth-child(2) {
+	order: 1;
+	flex: 0 0 100%;
+	background-color: #ddddd;
+	align-items: center;
+	text-align: center;
+	padding: 0px 15px 0px 15px;
+	font-size: 5vh;
+	font-weight: 900;
+	overflow: hidden;
+}
+
+.v-subitem-a:nth-child(3) {
+	order: 2;
+	flex: 0 0 0%;
+	background-color: #dddddd;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.hide-scroll {
+	width: 100%;
+	height: 100%;
+    overflow-y: scroll;
+    box-sizing: content-box;
+    padding-right: 17px;
+}
+
+.inner-scroll {
+	padding-left: 25px;
+	padding-right: 8px;
+}
+
+.v-subitem-b {
+	flex: 1;
+	align-items: center;
+	overflow-y: hidden;
+}
+
+.issue-title {
+	text-align: center;
+	padding: 15px 15px 15px 15px;
+	font-size: 3vh;
+	font-weight: 900;
+	overflow: hidden;
+}
+
+.issue-content {
+	padding: 15px 15px 15px 15px;
+}
+
+.openbtn .closebtn {
+	font-size: 20px;
+	cursor: pointer;
+	background-color: #111;
+	color: white;
+	padding: 10px 15px;
+	border: none;
+}
+
+#graph_panel, #data_panel {
+	transition: 0.3s;
+	overflow: hidden
+}

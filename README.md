@@ -69,3 +69,10 @@ The report for milestone 2 is available on this repo. For the website's prototyp
 
 **80% of the final grade**
 
+The report is again available on this repo. To run the visualization, you need to :
+- Run a python server in the site folder (python -m http.server) to serve the json file.
+- Browse to localhost:8000/sim.html
+
+All data analysis notebooks are found in the analysis folder.
+
+To use the vis, simply click on a node and navigate from node to node. The bottom right panels and the menu are interactable as well.
