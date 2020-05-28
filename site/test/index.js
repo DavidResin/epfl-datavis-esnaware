@@ -28,7 +28,7 @@ function openNav() {
 	document.getElementById("title_panel").style["flex-basis"] = "10%";
 }
 
-function closeNav() {	
+function closeNav() {
 	var s = document.getElementsByTagName('p');
 
 	for (i = 0; i < s.length; i++) {

@@ -7,18 +7,18 @@ p {
 	transition: 0.2s;
 }
 
-div.tooltip {	
-    position: absolute;			
-    text-align: center;			
-    width: 60px;					
-    height: 28px;					
-    padding: 2px;				
-    font: 12px sans-serif;		
-    background: lightsteelblue;	
-    border: 0px;		
-    border-radius: 8px;			
-    pointer-events: none;	
-    z-index: 3;		
+div.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 60px;
+    height: 28px;
+    padding: 2px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: 3;
 }
 
 .panel {
@@ -46,12 +46,12 @@ div.tooltip {
 
 .v-container {
 	flex-direction: column;
-	height: 100%; 
+	height: 100%;
 }
 
 .h-container {
 	flex-direction: row;
-	width: 100%; 
+	width: 100%;
 }
 
 .v-item:nth-child(1) {
@@ -62,7 +62,7 @@ div.tooltip {
 .v-item:nth-child(2) {
 	order: 1;
 	flex: 0 0 0%;
-	background-color: #333;
+	background-color: #dddddd;
 }
 
 .h-item:nth-child(1) {
@@ -79,7 +79,7 @@ div.tooltip {
 .v-subitem-a:nth-child(1) {
 	order: 0;
 	flex: 0 0 0%;
-	background-color: #333;
+	background-color: #dddddd;
 }
 
 .h-subitem:nth-child(1) {
@@ -92,7 +92,7 @@ div.tooltip {
 	flex-basis: 90%;
     padding: 0px 35px 0px 35px;
 	align-items: center;
-	color: white;
+	color: black;
 	overflow: hidden;
 	text-overflow: ellipsis;
     display: -webkit-box;
@@ -110,7 +110,7 @@ div.tooltip {
 .v-subitem-a:nth-child(2) {
 	order: 1;
 	flex: 0 0 100%;
-	background-color: grey;
+	background-color: #ddddd;
 	align-items: center;
 	text-align: center;
 	padding: 0px 15px 0px 15px;
@@ -122,7 +122,7 @@ div.tooltip {
 .v-subitem-a:nth-child(3) {
 	order: 2;
 	flex: 0 0 0%;
-	background-color: #EEE;
+	background-color: #dddddd;
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
