@@ -7,6 +7,20 @@ p {
 	transition: 0.2s;
 }
 
+div.tooltip {	
+    position: absolute;			
+    text-align: center;			
+    width: 60px;					
+    height: 28px;					
+    padding: 2px;				
+    font: 12px sans-serif;		
+    background: lightsteelblue;	
+    border: 0px;		
+    border-radius: 8px;			
+    pointer-events: none;	
+    z-index: 3;		
+}
+
 .panel {
 	position: fixed;
 	width: 100%;
@@ -42,12 +56,12 @@ p {
 
 .v-item:nth-child(1) {
 	order: 0;
-	flex: 0 0 25%;
+	flex: 0 0 40%;
 }
 
 .v-item:nth-child(2) {
 	order: 1;
-	flex: 0 0 75%;
+	flex: 0 0 60%;
 	background-color: #333;
 }
 
@@ -70,12 +84,12 @@ p {
 
 .h-subitem:nth-child(1) {
 	order: 0;
-	flex: 0 0 20%;
+	flex-basis: 10%;
 }
 
 .h-subitem:nth-child(2) {
 	order: 1;
-	flex: 0 0 80%;
+	flex-basis: 90%;
     padding: 0px 35px 0px 35px;
 	align-items: center;
 	color: white;
