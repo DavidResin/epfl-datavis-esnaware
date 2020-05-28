@@ -74,3 +74,5 @@ The report is again available on this repo. To run the visualization, you need t
 - Browse to localhost:8000/sim.html
 
 All data analysis notebooks are found in the analysis folder.
+
+To use the vis, simply click on a node and navigate from node to node. The bottom right panels and the menu are interactable as well.
