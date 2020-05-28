@@ -1,121 +1,310 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<style>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="shortcut icon" href="#" />
+		<link rel="stylesheet" href="circle.css">
+		<link rel="stylesheet" href="index.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:300,500">
+		<script src="index.js"></script>
 
-.links line {
-  stroke: #999;
-  stroke-opacity: 0.6;
-}
+		<link rel="stylesheet" href="header.css">
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+		
+		
+	</head>
+	<body>
+		<div class="container-div">
+			<div class="panel-div" style="position: absolute;z-index: 2">
+				<div class="panel base-flex v-container">
+					<div id="graph_panel" class="base-item v-item">
+						<svg style="position: absolute;top: 0;left: 0;width:100vw;height:100vh"></svg>
+						<div class="menu-div" style="position:absolute;z-index: 2;width: 5vw;height: 5vh">
+							<div class="back">
+								<a class="btn-back">
+									<div>
+										<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="-7 -7 500 500"><defs><style>.cls-1{stroke:#000;stroke-miterlimit:10;stroke-width:3px;}</style></defs><title>ClimateMazeLogo_3_black</title><path d="M561.74,538l.08-.08A211.74,211.74,0,0,0,612.6,407.11h-14C594.83,513.41,507.2,598.74,400,598.74c-109.58,0-198.74-89.16-198.74-198.74,0-2.31.06-4.6.14-6.89h16c-.09,2.28-.15,4.58-.15,6.89A181.79,181.79,0,0,0,250.9,505.54l10-10.06A167.83,167.83,0,0,1,231.26,400c0-85.58,64.05-156.48,146.72-167.3V218.61C294.42,228.69,228,295.38,218.47,379.11h-1.21v0h-29c-.67,6.87-1,13.83-1,20.87,0,117.3,95.44,212.74,212.74,212.74a212.11,212.11,0,0,0,152.33-64.41l11.31,11.31A228,228,0,0,1,400,628.74c-126.12,0-228.74-102.62-228.74-228.74S273.88,171.26,400,171.26,628.74,273.88,628.74,400A227.55,227.55,0,0,1,582,538.43l10,10A241.52,241.52,0,0,0,642.74,400c0-133.84-108.9-242.74-242.74-242.74S157.26,266.16,157.26,400,266.16,642.74,400,642.74a242.24,242.24,0,0,0,183-83.46Z" transform="translate(-157.26 -157.26)"/><path d="M400,187.26c-105.43,0-193.17,77.1-209.86,177.87h14.2C220.41,274.68,297.87,205.21,392,201.44v30q4-.19,8-.2a167.9,167.9,0,0,1,106.76,38.18l-11.37,11.37A152,152,0,0,0,400,247.26c-84.22,0-152.74,68.52-152.74,152.74a152,152,0,0,0,33.55,95.39l-.54.54,0,0-20.78,20.77a182.44,182.44,0,0,0,140.49,66c100.76,0,182.74-82,182.74-182.74,0-2.31-.06-4.61-.15-6.89h30C609,279,515,187.26,400,187.26Zm-7,381.32a168.25,168.25,0,0,1-114.26-51.35l11.31-11.31a152.34,152.34,0,0,0,103,46.65ZM581.53,379.11A182,182,0,0,0,536.8,279l-9.91,9.91A168,168,0,0,1,568.74,400c0,90.69-71.92,164.89-161.72,168.58v-16h0v-14q-3.5.18-7,.18c-76.5,0-138.74-62.24-138.74-138.74S323.5,261.26,400,261.26,538.74,323.5,538.74,400c0,69.35-51.16,127-117.72,137.15v14.13C495.33,541,552.74,477.09,552.74,400a152.32,152.32,0,0,0-46.82-109.93l11.31-11.31h0l9.89-9.89A182.1,182.1,0,0,0,406,217.37v-16c99.83,3,181.41,79.89,191.68,177.75Z" transform="translate(-157.26 -157.26)"/><path class="cls-1" d="M427.61,367.51a3.18,3.18,0,1,0-6,2,60.28,60.28,0,0,1,3.17,18.79c0,21.86-13.48,40.86-21.56,50.27V410.91l9.54-9.53a3.19,3.19,0,1,0-4.51-4.5l-5,5V390.5l9.54-9.54a3.18,3.18,0,0,0-4.5-4.5l-5,5v-13a3.19,3.19,0,0,0-6.37,0v13l-5-5a3.19,3.19,0,1,0-4.51,4.5l9.54,9.54v11.41l-5-5a3.19,3.19,0,1,0-4.51,4.5l9.54,9.53v27.66c-8.08-9.41-21.56-28.41-21.56-50.27,0-24.49,16.93-45.4,24.21-53.24a.7.7,0,0,1,.53-.24.68.68,0,0,1,.53.24A106.75,106.75,0,0,1,416.17,357a3.19,3.19,0,0,0,5.63-3,113.61,113.61,0,0,0-16.6-23.27,7.09,7.09,0,0,0-10.4,0c-7.79,8.4-25.91,30.83-25.91,57.58S387,437.48,394.8,445.88a6.86,6.86,0,0,0,2,1.5v13.38a3.19,3.19,0,1,0,6.37,0V447.38a7,7,0,0,0,2-1.5c7.79-8.4,25.91-30.83,25.91-57.58A66.49,66.49,0,0,0,427.61,367.51Z" transform="translate(-157.26 -157.26)"/><path class="cls-1" d="M484.75,424.7a24.32,24.32,0,0,0-2.34,10.41v8.26a3.18,3.18,0,1,0,6.36,0v-8.26a18,18,0,0,1,1.73-7.68l16-33.7a20.94,20.94,0,0,0-.89-19.63l-32.83-55.64-4.28-7.25a12.73,12.73,0,0,0-8-5.91l-.63-.14a13.73,13.73,0,0,0-2.54-.24,12.72,12.72,0,0,0-5.2,1.17,12,12,0,0,0-1.41.76,12.79,12.79,0,0,0-6,9.8c0,.2,0,.39,0,.59a9.31,9.31,0,0,0,0,1.18,12.55,12.55,0,0,0,1.43,5.2l18.5,35.32-16.81,16.45a35.58,35.58,0,0,0-10.81,25.36l-.13,54.89a8,8,0,0,0-5,7.4v24a8,8,0,0,0,8,8h46.61a8,8,0,0,0,8-8V463a8,8,0,0,0-8-8H443.29l.14-54.29A29.18,29.18,0,0,1,452.31,380l19.49-19.07a7.55,7.55,0,1,1,10.68,10.68.3.3,0,0,1-.08.08L470.94,384a25.16,25.16,0,0,0-7.32,17.66,3.19,3.19,0,1,0,6.37,0,18.76,18.76,0,0,1,5.48-13.19l.09-.09L487,376a13.92,13.92,0,0,0-9.88-23.72,13.75,13.75,0,0,0-7.58,2.24l-13.1-25a7.54,7.54,0,0,1,11.2-7.16l32.43,55a14.54,14.54,0,0,1,.62,13.66Zm1.79,36.71a1.63,1.63,0,0,1,1.63,1.63v24a1.63,1.63,0,0,1-1.63,1.63H439.93a1.63,1.63,0,0,1-1.63-1.63V463a1.63,1.63,0,0,1,1.63-1.63ZM456.65,317.14a13.85,13.85,0,0,0-4.4,4.35l-.43-.82a6.34,6.34,0,0,1-.73-2.91,6.43,6.43,0,0,1,3-5.5,6.38,6.38,0,0,1,8.88,2.19l.37.61A13.93,13.93,0,0,0,456.65,317.14Z" transform="translate(-157.26 -157.26)"/><path class="cls-1" d="M363.07,455.47l-.13-54.72a35.57,35.57,0,0,0-10.8-25.35l-16.82-16.46,18.5-35.32a12.81,12.81,0,0,0-4.57-16.77,12.77,12.77,0,0,0-17.73,4.36l-4.28,7.25h0L294.41,374.1a20.94,20.94,0,0,0-.89,19.63l16,33.7a18,18,0,0,1,1.73,7.68v20.41a8,8,0,0,0-5.31,7.52v24a8,8,0,0,0,8,8h46.62a8,8,0,0,0,8-8V463A8,8,0,0,0,363.07,455.47ZM337,314.45a6.37,6.37,0,0,1,4-3,6.58,6.58,0,0,1,2-.16,6.29,6.29,0,0,1,2.88.94,6.42,6.42,0,0,1,2.29,8.41l-.43.82a13.93,13.93,0,0,0-11.1-6.43Zm25.15,172.63a1.63,1.63,0,0,1-1.63,1.63H313.91a1.63,1.63,0,0,1-1.62-1.63V463a1.63,1.63,0,0,1,1.62-1.63H336a3.18,3.18,0,1,0,0-6.36H317.59V435.11a24.32,24.32,0,0,0-2.34-10.41l-16-33.7a14.54,14.54,0,0,1,.62-13.66l32.43-55a7.54,7.54,0,0,1,11.2,7.16l-13.1,25A13.92,13.92,0,0,0,313,356.38,13.93,13.93,0,0,0,313,376l11.47,12.35.09.09A18.76,18.76,0,0,1,330,401.65a3.19,3.19,0,1,0,6.37,0A25.15,25.15,0,0,0,329.07,384L317.6,371.64l-.08-.08a7.55,7.55,0,0,1,0-10.68,7.56,7.56,0,0,1,10.7,0L347.71,380a29.16,29.16,0,0,1,8.86,20.79l.13,54.29h-6.37a3.18,3.18,0,0,0,0,6.36h10.2a1.63,1.63,0,0,1,1.63,1.63Z" transform="translate(-157.26 -157.26)"/></svg>
+									</div>
+									<span>Menu</span>
+								</a>
+								<div class="menu-back">
+									<ul class="nav-history">
+										<li class="active"><a href="#">Home</a></li>
+										<li><a href="#">Process Book</a></li>
+										<li><a href="#">About</a></li>
+										<li><a href="#">Links : 
+											<label class="url" for="lda">
+												<input type="checkbox" id="lda" name="lda" value="lda"> LDA
+											</label> —
+											<label class="url" for="out">
+												<input type="checkbox" id="out" name="out" value="out">
+											 Outgoing
+											</label> —
+											<label class="url" for="cat">
+												<input type="checkbox" id="cat" name="cat" value="cat">
+											 Category
+											</label>
+										</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="data_panel" class="base-item base-flex v-item h-container" style="position: relative;z-index: 3">
+						<div id="main_panel" class="base-item base-flex h-item v-container">
+							<div id="descr_panel" class="base-item base-flex v-subitem-a h-container">
+								<div id="canc_panel" class="base-item h-subitem" style="position:relative;vertical-align:middle;text-align: center;display: inline-block; ">
+									<img src="cross.png" id="cross" style="height:10vh;position:absolute;top:0;bottom: 0;left: 0;right: 0;margin: auto">
+								</div>
+								<div id="wiki_panel" class="base-item h-subitem">
+									<p class="lorem">Lorem ipsum dolor sit amet, an quo wisi fabulas, vocent viderer per no, vel ne graeci adolescens. His regione mandamus maiestatis an. At ferri errem salutandi vim, quo ex stet dicam dictas, no platonem convenire intellegam est. Aperiri voluptua hendrerit ne nam, usu cu erat labores tractatos. Ea est nobis explicari. Ad dolorem fabellas qui. Mei forensibus deseruisse ut. Cum zril assueverit cu, vel ea tale modus mediocrem. Cibo apeirian at sea, diam paulo tation eos at. Wisi epicuri mel ad, ad debet quodsi fabulas mea. Ex convenire aliquando concludaturque sea. Vix choro regione consequuntur id, id per quaeque delicata, ad dicant propriae vis.</p>
+								</div>
+							</div>
+							<div id="title_panel" class="base-item v-subitem-a">Name of the current subject</div>
+							<div id="content_panel" class="base-item v-subitem-a">
+								<div class="hide-scroll">
+									<div class="inner-scroll">
+										<p class="lorem">Lorem ipsum dolor sit amet, an quo wisi fabulas, vocent viderer per no, vel ne graeci adolescens. His regione mandamus maiestatis an. At ferri errem salutandi vim, quo ex stet dicam dictas, no platonem convenire intellegam est. Aperiri voluptua hendrerit ne nam, usu cu erat labores tractatos. Ea est nobis explicari. Ad dolorem fabellas qui. Mei forensibus deseruisse ut.
 
-.nodes circle {
-  stroke: #fff;
-  stroke-width: 1.5px;
-}
+										Cum zril assueverit cu, vel ea tale modus mediocrem. Cibo apeirian at sea, diam paulo tation eos at. Wisi epicuri mel ad, ad debet quodsi fabulas mea. Ex convenire aliquando concludaturque sea. Vix choro regione consequuntur id, id per quaeque delicata, ad dicant propriae vis.
 
-text {
-  font-family: sans-serif;
-  font-size: 10px;
-}
+										Ut esse copiosae appareat quo. Te justo exerci assueverit ius, his in everti adipisci elaboraret, tritani explicari rationibus ex pro. Dicit oratio no sit, qui ne mazim liberavisse. Id detracto complectitur signiferumque vim, id augue errem quando usu, dicant euripidis voluptaria sea at. Utroque gubergren persequeris sea an, vix an vidit laboramus, sea ei iudico omittam senserit. Case molestie ad pri.
 
-</style>
-<svg width="960" height="600"></svg>
-<button onclick="change()">test</button>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script>
+										Te officiis definitiones eum, mei liber percipitur appellantur no. Id regione necessitatibus ius, has periculis instructior ad. Viris apeirian adipiscing ne qui, in eirmod numquam civibus cum. Vide accumsan maluisset est ut, ei dolor forensibus his, quot percipitur in sed. Eros persius forensibus ea vis, cum probo saepe essent ut. Scripserit quaerendum et mel, eos movet laudem corpora te, noster scriptorem quo et.
 
-var svg = d3.select("svg"),
-    width = +svg.attr("width"),
-    height = +svg.attr("height");
+										Solum possim in vim. An duo essent menandri tacimates, an mea facete fierent. Errem molestie eleifend no mea. Eos cu impetus volumus, vel sumo soluta et, eam virtute consulatu te. Ne nec mundi homero definiebas, his quod oporteat eu. Repudiandae instructior vituperatoribus his at, ea harum efficiendi his. Mei in case vidit, vim habeo eripuit eu.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="right_panel" class="base-item base-flex h-item v-container">
+							<div id="A" onmouseover="panel('A')" class="base-item v-subitem-b">
+								<div class="issue-title">Causes</div>
+								<div class="issue-content">
+									<p>
+										This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test 
+									</p>
+								</div>
+							</div>
+							<div id="B" onmouseover="panel('B')" class="base-item v-subitem-b">
+								<div class="issue-title">Consequences</div>
+								<div class="issue-content">
+									<p>
+										This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test 
+									</p>
+								</div>
+							</div>
+							<div id="C" onmouseover="panel('C')" class="base-item v-subitem-b">
+								<div class="issue-title">Problems</div>
+								<div class="issue-content">
+									<p>
+										This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test 
+									</p>
+								</div>
+							</div>
+							<div id="D" onmouseover="panel('D')" class="base-item v-subitem-b">
+								<div class="issue-title">Solutions</div>
+								<div class="issue-content">
+									<p>
+										This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test 
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
 
-var color = d3.scaleOrdinal(d3.schemeCategory20);
+			document.addEventListener('DOMContentLoaded', redraw);
 
-var simulation = d3.forceSimulation()
-   //.force("link", d3.forceLink().id(function(d) { return d.id; }))
-    .force("charge", d3.forceManyBody())
-    .force("x", d3.forceX(width / 2))
-    .force("y", d3.forceY(height / 2))
-    .force("collide", d3.forceCollide(d => Math.sqrt(20 * d.neighbors.length)));
+			function redraw() {
+				var svg = d3.select("svg");
+				var width = window.innerWidth;
+				var height = window.innerHeight;
 
-d3.json("data.json", function(error, graph) {
-  if (error) throw error;
+				var div = d3.select("body").append("div")	
+		    		.attr("class", "tooltip")				
+		    		.style("opacity", 0);
 
-  var link = svg.append("g")
-      .attr("class", "links")
-    .selectAll("line")
-    .data(graph.links)
-    .enter().append("line")
-      .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
+				var color = d3.scaleOrdinal(d3.schemeCategory20);
 
-  var node = svg.append("g")
-      .attr("class", "nodes")
-    .selectAll("g")
-    .data(graph.nodes)
-    .enter().append("g")
-          .on("mouseover", focus)
-    
-  var circles = node.append("circle")
-      .attr("r", function(d) { return Math.sqrt(20 * d.neighbors.length); })
-      .attr("fill", function(d) { return color(d.group); })
-      .on("click", clickNode);
+				var simulation = d3.forceSimulation()
+					.force("link", d3.forceLink().strength(0).id(function(d) { return d.id; }))
+					.force("charge", d3.forceManyBody())
+					.force("x", d3.forceX(width / 2))
+					.force("y", d3.forceY(height / 2))
+					.force("collide", d3.forceCollide(d => Math.sqrt(60)));
 
-  var labels = node.append("text")
-      .text(function(d) {
-        return d.id;
-      })
-      .attr('x', 6)
-      .attr('y', 3);
+				d3.json("data.json", function(error, graph) {
+					if (error) throw error;
+						
+					var link = svg.append("g")
+						.attr("class", "links")
+						.selectAll("line")
+						.data(graph.links)
+						.enter()
+						.append("line")
+						.attr("stroke-width", 2);
 
-  node.append("title")
-      .text(function(d) { return d.id; });
+					var node = svg.append("g")
+						.attr("class", "node")
+						.selectAll("g")
+						.data(graph.nodes)
+						.enter().append("g");
+					
+					var circles = node.append("circle")
+						.on("click", clickNode)
+						.on("mouseover", function(d) {		
+					    	div.transition()		
+					    		.duration(200)		
+					    		.style("opacity", .9);		
+					    	div.html(d.id)	
+					           	.style("left", (d3.event.pageX) + "px")		
+					            .style("top", (d3.event.pageY - 28) + "px");	
+					    })					
+					    .on("mouseout", function(d) {		
+					        div.transition()		
+					            .duration(500)		
+					            .style("opacity", 0);	
+					    });
 
-  simulation
-      .nodes(graph.nodes)
-      .on("tick", ticked);
+					resetStyle();
 
-  simulation.force("link")
-      .links(graph.links);
+					node.append("title")
+						.text(function(d) { return d.id; });
 
-  function ticked() {
-    link
-        .attr("x1", function(d) { return d.source.x; })
-        .attr("y1", function(d) { return d.source.y; })
-        .attr("x2", function(d) { return d.target.x; })
-        .attr("y2", function(d) { return d.target.y; });
+					simulation
+						.nodes(graph.nodes)
+						.on("tick", ticked);
 
-    node
-        .attr("transform", function(d) {
-          return "translate(" + d.x + "," + d.y + ")";
-        })
-  }
+					simulation.force("link")
+						.links(graph.links);
 
-  function clickNode(d) {
+					d3.select("#cross").on("click", sim);		
 
-    let forceX = d3
-      .forceX().x(e => (2 + (e.neighbors.includes(d.id) ? 1 : 0)) * width / 4)
-      .strength(0.05);
+					function resetStyle() {
+						d3.selectAll("circle")
+								.attr("r", 10)
+								.attr("fill", "grey");
 
-    node.selectAll("circle")
-      .attr("r", 5)
-      .attr("fill", "grey");
+						link.attr("stroke-width", 2);
+					}			
 
-    // this node is centered and black
-    node.selectAll("circle")
-      .filter(e => e.id == d.id)
-      .attr("r", 20)
-      .attr("fill", "red");
+					function sim() {
+						closeNav();
+						d3.select("svg").style("height", "100vh");
+						setTimeout(nudge, 1000);
+					}
 
-    // neighbors are clustered and green
-    node.selectAll("circle")
-      .filter(e => e.neighbors.includes(d.id))
-      .attr("r", 12)
-      .attr("fill", "green");
-    // others are weak centered and grey with no links
+					function nudge() {
+						height = window.innerHeight;
+						resetStyle();
 
-    simulation
-      .force("x", forceX)
-      .alphaTarget(0.5)
-      .restart();
-  }
-});
+						simulation
+							.force("link", d3.forceLink().id(function(d) { return d.id; }))
+							.force("charge", d3.forceManyBody())
+							.force("x", d3.forceX(width / 2))
+							.force("y", d3.forceY(height / 2))
+							.force("collide", d3.forceCollide(d => Math.sqrt(60)))
+							.alphaTarget(0.2)
+							.restart();
+					}
 
-</script>
+					function ticked() {
+						link
+							.attr("x1", function(d) { return d.source.x; })
+							.attr("y1", function(d) { return d.source.y; })
+							.attr("x2", function(d) { return d.target.x; })
+							.attr("y2", function(d) { return d.target.y; });
+
+						node
+							.attr("transform", function(d) {
+								return "translate(" + d.x + "," + d.y + ")";
+							})
+
+						node
+							.attr("cx", function(d) {
+								return d.x = Math.max(30, Math.min(width - 30, d.x));
+							})
+        					.attr("cy", function(d) {
+        						return d.y = Math.max(30, Math.min(height - 30, d.y));
+        					});
+					}
+
+					function clickNode(d) {
+						openNav();
+						height = window.innerHeight * .4;
+
+						let nb0 = graph.links.filter(e => e.source.id == d.id && e.type == "cc").map(e => e.target.id);
+						let nb1 = graph.links.filter(e => e.source.id == d.id && e.type == "ps").map(e => e.target.id);
+						let nb2 = graph.links.filter(e => e.target.id == d.id && e.type == "cc").map(e => e.source.id);
+						let nb3 = graph.links.filter(e => e.target.id == d.id && e.type == "ps").map(e => e.source.id);
+
+						let nbs = nb0.concat(nb1).concat(nb2).concat(nb3);
+
+						let lineIds = graph.links.filter(e => e.source.id == d.id || e.target.id == d.id).map(e => e.index);
+
+						let forceX = d3
+							.forceX().x(e => (2 + (((nb0.concat(nb1)).includes(e.id) ? 1 : (nb2.concat(nb3)).includes(e.id) ? -1 : 0))) * width / 4)
+							.strength(e => e.id == d.id ? .6 : nbs.includes(e.id) ? 0.25 : 0.005);
+
+						let forceY = d3
+							.forceY().y(e => (2 + (((nb0.concat(nb2)).includes(e.id) ? .8 : (nb1.concat(nb3)).includes(e.id) ? -.8 : 0))) * height / 4)
+							.strength(e => e.id == d.id ? .6 : nbs.includes(e.id) ? 0.05 : 0.005);
+
+						let forceOthers = d3
+							.forceManyBody()
+							.strength(e => e.id == d.id || nbs.includes(e.id) ? 0 : -0.5);
+
+						// others are weak centered and grey with no links
+						node.selectAll("circle")
+							.attr("r", 10)
+
+						node.selectAll("circle")
+							.filter(e => !nbs.includes(e.id) && e.id != d.id)
+							.attr("r", 6)
+							.attr("fill", "#CCC");
+
+						node.selectAll("circle")
+							.filter(e => e.id == d.id)
+							.attr("r", 25)
+
+						node.selectAll("circle")
+							.filter(e => d.id == e.id)
+							.attr("fill", "green");
+
+						node.selectAll("circle")
+							.filter(e => nb0.includes(e.id))
+							.attr("fill", "red");
+
+						node.selectAll("circle")
+							.filter(e => nb1.includes(e.id))
+							.attr("fill", "orange");
+
+						node.selectAll("circle")
+							.filter(e => nb2.includes(e.id))
+							.attr("fill", "pink");
+
+						node.selectAll("circle")
+							.filter(e => nb3.includes(e.id))
+							.attr("fill", "cyan");
+
+						link
+							.attr("stroke-width", function(e) {return lineIds.includes(e.index) ? "2" : "0"});
+
+						simulation
+							.force("x", forceX)
+							.force("y", forceY)
+							.force("others", forceOthers)
+							.force("link", d3.forceLink().strength(0).id(function(d) { return d.id; }))
+							.alphaTarget(0.2)
+							.restart();
+					}
+				});
+			}
+
+		</script>
+	</body>
+</html>

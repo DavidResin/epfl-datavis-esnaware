@@ -7,6 +7,20 @@ p {
 	transition: 0.2s;
 }
 
+div.tooltip {	
+    position: absolute;			
+    text-align: center;			
+    width: 60px;					
+    height: 28px;					
+    padding: 2px;				
+    font: 12px sans-serif;		
+    background: lightsteelblue;	
+    border: 0px;		
+    border-radius: 8px;			
+    pointer-events: none;	
+    z-index: 3;		
+}
+
 .panel {
 	position: fixed;
 	width: 100%;
@@ -32,50 +46,50 @@ p {
 
 .v-container {
 	flex-direction: column;
-	height: 100%;
+	height: 100%; 
 }
 
 .h-container {
 	flex-direction: row;
-	width: 100%;
+	width: 100%; 
 }
 
 .v-item:nth-child(1) {
 	order: 0;
-	flex: 0 0 25%;
+	flex: 0 0 100%;
 }
 
 .v-item:nth-child(2) {
 	order: 1;
-	flex: 0 0 75%;
+	flex: 0 0 0%;
 	background-color: #333;
 }
 
 .h-item:nth-child(1) {
 	order: 0;
-	flex: 0 0 75%;
+	flex: 0 0 100%;
 }
 
 .h-item:nth-child(2) {
 	order: 1;
-	flex: 0 0 25%;
+	flex: 0 0 0%;
 	overflow-x: hidden;
 }
 
 .v-subitem-a:nth-child(1) {
 	order: 0;
-	flex: 0 0 20%;
+	flex: 0 0 0%;
 	background-color: #333;
 }
 
 .h-subitem:nth-child(1) {
 	order: 0;
-	flex: 0 0 20%;
+	flex-basis: 10%;
 }
 
 .h-subitem:nth-child(2) {
 	order: 1;
-	flex: 0 0 80%;
+	flex-basis: 90%;
     padding: 0px 35px 0px 35px;
 	align-items: center;
 	color: white;
@@ -95,7 +109,7 @@ p {
 
 .v-subitem-a:nth-child(2) {
 	order: 1;
-	flex: 0 0 10%;
+	flex: 0 0 100%;
 	background-color: grey;
 	align-items: center;
 	text-align: center;
@@ -107,7 +121,7 @@ p {
 
 .v-subitem-a:nth-child(3) {
 	order: 2;
-	flex: 0 0 70%;
+	flex: 0 0 0%;
 	background-color: #EEE;
 	width: 100%;
 	height: 100%;
@@ -157,45 +171,4 @@ p {
 #graph_panel, #data_panel {
 	transition: 0.3s;
 	overflow: hidden
-}
-
-.content{
-	font-size: 18px;
-	-webkit-columns: 3;
-     -moz-columns: 3;
-          columns: 3;
-  padding-left: 0;
-	-webkit-column-break-inside: avoid;
-          page-break-inside: avoid;
-               break-inside: avoid;
-}
-
-.keywords {
-	display: inline-block;
-}
-
-ul li {
-	break-inside: avoid-column;
-	page-break-inside: avoid-column;
-	-webkit-column-break-inside: avoid-column;
-}
-
-div.summary {
-   position: relative
-	 }
-div.summary p {
-   margin: 0;
-   position: absolute;               /* 2 */
-   top: 50%;                         /* 3 */
-   transform: translate(0, -50%);
-	 margin-right: 40px;
- }
-
-#content-keywords {
-	break-after:column;
-  display:block;
-}
-
-div.image-content {
-	float: none; margin-left: 0; margin-right: 0;
 }
