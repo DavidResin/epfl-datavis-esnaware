@@ -67,18 +67,18 @@ div.tooltip {
 
 .h-item:nth-child(1) {
 	order: 0;
-	flex: 0 0 75%;
+	flex: 0 0 100%;
 }
 
 .h-item:nth-child(2) {
 	order: 1;
-	flex: 0 0 25%;
+	flex: 0 0 0%;
 	overflow-x: hidden;
 }
 
 .v-subitem-a:nth-child(1) {
 	order: 0;
-	flex: 0 0 20%;
+	flex: 0 0 0%;
 	background-color: #333;
 }
 
@@ -109,7 +109,7 @@ div.tooltip {
 
 .v-subitem-a:nth-child(2) {
 	order: 1;
-	flex: 0 0 10%;
+	flex: 0 0 100%;
 	background-color: grey;
 	align-items: center;
 	text-align: center;
@@ -121,7 +121,7 @@ div.tooltip {
 
 .v-subitem-a:nth-child(3) {
 	order: 2;
-	flex: 0 0 70%;
+	flex: 0 0 0%;
 	background-color: #EEE;
 	width: 100%;
 	height: 100%;

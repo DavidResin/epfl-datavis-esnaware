@@ -224,8 +224,6 @@
 								return "translate(" + d.x + "," + d.y + ")";
 							})
 
-						height = window.innerHeight;
-
 						node
 							.attr("cx", function(d) {
 								return d.x = Math.max(30, Math.min(width - 30, d.x));
@@ -301,7 +299,7 @@
 							.force("y", forceY)
 							.force("others", forceOthers)
 							.force("link", d3.forceLink().strength(0).id(function(d) { return d.id; }))
-							.alphaTarget(0.5)
+							.alphaTarget(0.2)
 							.restart();
 					}
 				});

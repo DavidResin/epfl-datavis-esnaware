@@ -1,4 +1,5 @@
 function openNav() {
+	panel("A");
 	var s = document.getElementsByTagName('p');
 
 	for (i = 0; i < s.length; i++) {
