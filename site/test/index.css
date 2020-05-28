@@ -56,12 +56,12 @@ div.tooltip {
 
 .v-item:nth-child(1) {
 	order: 0;
-	flex: 0 0 40%;
+	flex: 0 0 100%;
 }
 
 .v-item:nth-child(2) {
 	order: 1;
-	flex: 0 0 60%;
+	flex: 0 0 0%;
 	background-color: #333;
 }
 
