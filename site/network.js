@@ -14,12 +14,13 @@ var getJSON = function(url, callback) {
             callback(status);
         }
     };
-    
+
     xhr.send();
 };
 
 function redraw() {
   var svg = d3.select("svg");
+
   var width = window.innerWidth;
   var height = window.innerHeight;
 
@@ -44,10 +45,15 @@ function redraw() {
       var link = svg.append("g")
         .attr("class", "links")
         .selectAll("line")
-        .data(graph.links)
+        .data(graph.links.filter(d => (d.w_lda + d.w_cat + d.w_links) >= 1.0))
         .enter()
         .append("line")
-        .attr("stroke-width", 2);
+
+      thickness = d3.scaleLinear().range([0, 2])
+                    .domain([0, d3.max(graph.links, function(d)
+                                       {return d.w_lda + d.w_cat + d.w_out;})]);
+
+      link.attr("stroke-width", l => thickness(l.w_lda + l.w_cat + l.w_out));
 
       var node = svg.append("g")
         .attr("class", "node")
@@ -113,8 +119,21 @@ function redraw() {
         setTimeout(nudge, 1000);
       }
 
-      function updatePanel() {
 
+      d3.select("#lda").on("change", updateLinks);
+      d3.select("#out").on("change", updateLinks);
+      d3.select("#cat").on("change", updateLinks);
+      function updateLinks() {
+        lda = d3.select("#lda").property("checked");
+        out = d3.select("#out").property("checked");
+        cat = d3.select("#cat").property("checked");
+        if (cat | out | lda){
+          link.attr('stroke-width', l => thickness(l.w_lda * lda +
+                                          l.w_car * cat +
+                                          l.w_out * out));
+        } else {
+          link.attr('stroke-width', l => thickness(l.w_lda + l.w_cat + l.w_out));
+        }
       }
 
       function nudge() {
