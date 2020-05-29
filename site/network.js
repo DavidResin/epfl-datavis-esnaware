@@ -146,21 +146,19 @@ function redraw() {
         setTimeout(nudge, 1000);
       }
 
-      d3.select("#lda").on("change", updateLinks);
-      d3.select("#out").on("change", updateLinks);
-      d3.select("#cat").on("change", updateLinks);
       function updateLinks() {
+        console.log("HELLO");
         lda = d3.select("#lda").property("checked");
         out = d3.select("#out").property("checked");
         cat = d3.select("#cat").property("checked");
-        if (cat | out | lda){
-          link.attr('stroke-width', l => thickness(l.w_lda * lda +
-                                          l.w_car * cat +
-                                          l.w_out * out));
-        } else {
-          link.attr('stroke-width', l => thickness(l.w_lda + l.w_cat + l.w_out));
-        }
+
+        link.attr('stroke-width', l => thickness(l.w_lda * lda + l.w_cat * cat + l.w_out * out));
       }
+
+      d3.select("#lda").on("change", updateLinks);
+      d3.select("#out").on("change", updateLinks);
+      d3.select("#cat").on("change", updateLinks);
+
 
       function nudge() {
         height = window.innerHeight;
