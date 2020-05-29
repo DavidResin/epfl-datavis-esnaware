@@ -1,9 +1,8 @@
 document.addEventListener('DOMContentLoaded', redraw);
 
 var getJSON = function(url, callback) {
-		const proxy_url = "https://cors-anywhere.herokuapp.com/"
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', proxy_url + url, true);
+    xhr.open('GET', url, true);
     xhr.responseType = 'json';
 
     xhr.onload = function() {
@@ -155,10 +154,10 @@ function redraw() {
         lda = d3.select("#lda").property("checked");
         out = d3.select("#out").property("checked");
         cat = d3.select("#cat").property("checked");
-        if (cat | out | lda){
+        if (cat || out || lda){
           link.attr('stroke-width', l => thickness(l.w_lda * lda +
-                                          l.w_car * cat +
-                                          l.w_out * out));
+                                            l.w_cat * cat +
+                                            l.w_out * out));
         } else {
           link.attr('stroke-width', l => thickness(l.w_lda + l.w_cat + l.w_out));
         }
@@ -217,7 +216,7 @@ function redraw() {
         d3.select('#content-topic').html("<strong>Dominant LDA Topic:</strong> " + panel['topic']);
         d3.select("#keywords-list").html("<li>" + panel['topic_keywords'].join("</li><li>") + "</li>");
         d3.select("#link").attr("href", panel['link']);
-      	getJSON("https://en.wikipedia.org/w/api.php?action=query&titles=" + panel['title'] + "&prop=pageimages&format=json&pithumbsize=500",
+      	getJSON("https://en.wikipedia.org/w/api.php?action=query&origin=*&titles=" + panel['title'] + "&prop=pageimages&format=json&pithumbsize=500",
       					function(err, data) {
       						if (err != null) {
       							console.error(err);
