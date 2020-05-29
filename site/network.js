@@ -103,7 +103,6 @@ function redraw() {
         };
       }
 
-
       svg.selectAll("text")
         .data([[-1, -1, "Problems"], [1, -1, "Solutions"], [-1, 1, "Causes"], [1, 1, "Consequences"]])
         .enter()
@@ -113,6 +112,7 @@ function redraw() {
         .style("opacity", 0)
         .style("transition", ".5s")
         .style("text-anchor", "middle")
+        .style("user-select", "none")
         .text(d => d[2]);
 
       resetStyle();
@@ -146,11 +146,8 @@ function redraw() {
         setTimeout(nudge, 1000);
       }
 
-
-      d3.select("#lda").on("change", updateLinks);
-      d3.select("#out").on("change", updateLinks);
-      d3.select("#cat").on("change", updateLinks);
       function updateLinks() {
+        console.log("HELLO");
         lda = d3.select("#lda").property("checked");
         out = d3.select("#out").property("checked");
         cat = d3.select("#cat").property("checked");
@@ -162,6 +159,11 @@ function redraw() {
           link.attr('stroke-width', l => thickness(l.w_lda + l.w_cat + l.w_out));
         }
       }
+
+      d3.select("#lda").on("change", updateLinks);
+      d3.select("#out").on("change", updateLinks);
+      d3.select("#cat").on("change", updateLinks);
+
 
       function nudge() {
         height = window.innerHeight;

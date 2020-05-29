@@ -406,31 +406,6 @@ div.tooltip {
 	background-color: #dddddd;
 }
 
-.h-subitem:nth-child(1) {
-	order: 0;
-	flex-basis: 10%;
-}
-
-.h-subitem:nth-child(2) {
-	order: 1;
-	flex-basis: 90%;
-    padding: 0px 35px 0px 35px;
-	align-items: center;
-	color: black;
-	overflow: hidden;
-	text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
-    text-align: justify;
-}
-
-.lorem {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    text-align: justify;
-}
-
 .v-subitem-a:nth-child(2) {
 	order: 1;
 	flex: 0 0 100%;
@@ -449,7 +424,46 @@ div.tooltip {
 	background-color: #dddddd;
 	width: 100%;
 	height: 100%;
-	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+.h-subitem:nth-child(1) {
+	order: 0;
+	flex-basis: 10%;
+}
+
+.h-subitem:nth-child(2) {
+	order: 1;
+	flex-basis: 90%;
+    padding: 0px 35px 0px 35px;
+	align-items: center;
+	color: black;
+    text-align: justify;
+  	min-height: 0;
+    height: 12vh;
+	overflow-y: scroll;
+}
+
+.h-subitem-b:nth-child(1) {
+	order: 0;
+	flex: 0 0 25%;
+}
+
+.h-subitem-b:nth-child(2) {
+	order: 1;
+	flex: 0 0 25%;
+}
+
+.h-subitem-b:nth-child(3) {
+	order: 2;
+	flex: 0 0 50%;
+}
+
+.lorem {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-align: justify;
 }
 
 .hide-scroll {
@@ -536,5 +550,8 @@ div.wiki_panel p {
 }
 
 div.image-content {
-	float: none; margin-left: 0; margin-right: 0;
+	float: none;
+	margin-left: 0;
+	margin-right: 0;
+	object-fit: contain;
 }
