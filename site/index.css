@@ -506,6 +506,9 @@ div.tooltip {
 	-webkit-column-break-inside: avoid;
           page-break-inside: avoid;
                break-inside: avoid;
+
+	transition: 0.3s;
+ 	overflow: hidden;
 }
 
 .keywords {
@@ -518,10 +521,10 @@ ul li {
 	-webkit-column-break-inside: avoid-column;
 }
 
-div.summary {
+div.wiki_panel {
    position: relative
 	 }
-div.summary p {
+div.wiki_panel p {
    margin: 0;
    position: absolute;               /* 2 */
    top: 50%;                         /* 3 */
