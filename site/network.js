@@ -42,18 +42,22 @@ function redraw() {
       if (error) throw error;
       if (error2) throw error2;
 
+      const graph_links = graph.links.filter(d => d.type == 'ps' | d.type == 'cc' |
+                              (d.w_lda + d.w_cat + d.w_links) >= 1.0)
+
       var link = svg.append("g")
         .attr("class", "links")
         .selectAll("line")
-        .data(graph.links.filter(d => (d.w_lda + d.w_cat + d.w_links) >= 1.0))
+        .data(graph_links)
         .enter()
         .append("line")
 
       thickness = d3.scaleLinear().range([0, 2])
-                    .domain([0, d3.max(graph.links, function(d)
+                    .domain([0, d3.max(graph_links, function(d)
                                        {return d.w_lda + d.w_cat + d.w_out;})]);
 
-      link.attr("stroke-width", l => thickness(l.w_lda + l.w_cat + l.w_out));
+      link.attr("stroke-width", l => thickness(l.w_lda + l.w_cat + l.w_out))
+          .on('mouseout.fade', fade(1));
 
       var node = svg.append("g")
         .attr("class", "node")
@@ -71,11 +75,35 @@ function redraw() {
                   .style("left", (d3.event.pageX + 10) + "px")
                   .style("top", (d3.event.pageY - 28) + "px");
           })
-          .on("mouseout", function(d) {
-              div.transition()
-                  .duration(500)
-                  .style("opacity", 0);
+        .on('mouseover.fade', fade(0.1))
+        .on("mouseout", function(d) {
+            div.transition()
+                .duration(500)
+                .style("opacity", 0);
+        })
+        .on('mouseout.fade', fade(1));
+
+      const linkedByIndex = {};
+      graph_links.forEach(d => {
+        linkedByIndex[`${d.source.index},${d.target.index}`] = 1;
+      });
+
+      function isConnected(a, b) {
+        return linkedByIndex[`${a.index},${b.index}`] || linkedByIndex[`${b.index},${a.index}`] || a.index === b.index;
+      }
+
+      function fade(opacity) {
+        return d => {
+          node.style('stroke-opacity', function (o) {
+            const thisOpacity = isConnected(d, o) ? 1 : opacity;
+            this.setAttribute('fill-opacity', thisOpacity);
+            return thisOpacity;
           });
+
+          link.style('stroke-opacity', o => (o.source === d || o.target === d ? 1 : opacity));
+        };
+      }
+
 
       svg.selectAll("text")
         .data([[-1, -1, "Problems"], [1, -1, "Solutions"], [-1, 1, "Causes"], [1, 1, "Consequences"]])
@@ -98,7 +126,7 @@ function redraw() {
         .on("tick", ticked);
 
       simulation.force("link")
-        .links(graph.links);
+        .links(graph_links);
 
       d3.select("#cross").on("click", sim);
 
@@ -179,12 +207,13 @@ function redraw() {
 
         d3.select("#image-panel").attr("src", '');
         const panel = graph['panel'][d.id];
-        console.log(panel);
         d3.select("#title_panel").text(panel['title']);
         d3.select("#summary").text(panel['summary']);
         d3.select("#link").attr("href", panel['link']);
         d3.select("#link").text(panel['title']);
         d3.select("#content-category").html("<strong>Category:<strong> " + panel['category']);
+        const connections = graph_links.filter(l => l.source.id == d.id | l.target.id == d.id).length;
+        d3.select("#connections").html("<strong>Number of connections:<strong> " + connections);
         d3.select('#content-topic').html("<strong>Dominant LDA Topic:</strong> " + panel['topic']);
         d3.select("#keywords-list").html("<li>" + panel['topic_keywords'].join("</li><li>") + "</li>");
         d3.select("#link").attr("href", panel['link']);
@@ -193,7 +222,6 @@ function redraw() {
       						if (err != null) {
       							console.error(err);
       						} else {
-      							console.log(data);
       							var page = data['query']['pages'];
       							var page_id = Object.keys(page)[0];
                     if('thumbnail' in page[page_id]){
@@ -209,14 +237,14 @@ function redraw() {
         d3.select("#C > .issue-content > p").text("Problems of node " + d.label);
         d3.select("#D > .issue-content > p").text("Solutions of node " + d.label);
 
-        let nb0 = graph.links.filter(e => e.source.id == d.id && e.type == "cc").map(e => e.target.id);
-        let nb1 = graph.links.filter(e => e.source.id == d.id && e.type == "ps").map(e => e.target.id);
-        let nb2 = graph.links.filter(e => e.target.id == d.id && e.type == "cc").map(e => e.source.id);
-        let nb3 = graph.links.filter(e => e.target.id == d.id && e.type == "ps").map(e => e.source.id);
+        let nb0 = graph_links.filter(e => e.source.id == d.id && e.type == "cc").map(e => e.target.id);
+        let nb1 = graph_links.filter(e => e.source.id == d.id && e.type == "ps").map(e => e.target.id);
+        let nb2 = graph_links.filter(e => e.target.id == d.id && e.type == "cc").map(e => e.source.id);
+        let nb3 = graph_links.filter(e => e.target.id == d.id && e.type == "ps").map(e => e.source.id);
 
         let nbs = nb0.concat(nb1).concat(nb2).concat(nb3);
 
-        let lineIds = graph.links.filter(e => (e.source.id == d.id || e.target.id == d.id) && (e.type != 'na')).map(e => e.index);
+        let lineIds = graph_links.filter(e => (e.source.id == d.id || e.target.id == d.id) && (e.type != 'na')).map(e => e.index);
 
         let forceX = d3
           .forceX().x(e => (2 + (((nb0.concat(nb1)).includes(e.id) ? 1 : (nb2.concat(nb3)).includes(e.id) ? -1 : 0))) * width / 4)
